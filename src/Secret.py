@@ -3,9 +3,8 @@ import gnupg
 
 
 class Secret(object):
-    
+
   publicKey = None
-  secretFile = './secret'
   gpg = gnupg.GPG()
   outputEncoding = 'utf-8'
 
@@ -18,4 +17,3 @@ class Secret(object):
     decrypted = self.gpg.decrypt_file(file)
 
     return decrypted.data.decode(self.outputEncoding)
-
