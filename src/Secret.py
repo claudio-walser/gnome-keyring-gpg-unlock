@@ -4,12 +4,8 @@ import gnupg
 
 class Secret(object):
 
-  publicKey = None
   gpg = gnupg.GPG()
   outputEncoding = 'utf-8'
-
-  def __init__(self, publicKey: str):
-    self.publicKey = publicKey
 
   def decrypt(self, file: str) -> str:
     if not os.path.exists(file):
