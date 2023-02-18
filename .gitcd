@@ -1,0 +1,8 @@
+extraReleaseCommand: null
+feature: null
+master: main
+preReleaseCommand: null
+tag: v
+test: null
+versionScheme: version.txt
+versionType: file
