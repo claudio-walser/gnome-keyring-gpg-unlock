@@ -2,7 +2,7 @@ import os
 import gnupg
 
 
-class Secret(object):
+class GpgSecret(object):
 
   gpg = gnupg.GPG()
   outputEncoding = 'utf-8'
