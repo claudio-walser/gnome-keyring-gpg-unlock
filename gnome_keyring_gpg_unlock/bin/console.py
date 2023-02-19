@@ -6,6 +6,10 @@ import argcomplete
 import argparse
 from gnome_keyring_gpg_unlock.interface.cli import Cli
 
+import sys
+
+import os
+from pprint import pprint
 
 cli = Cli()
 
@@ -32,6 +36,10 @@ argcomplete.autocomplete(parser)
 
 
 def main():
+
+
+    file_path = os.path.realpath(__file__)
+
 
     try:
         arguments = parser.parse_args()

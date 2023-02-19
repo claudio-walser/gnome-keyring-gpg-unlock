@@ -11,9 +11,8 @@ class GpgSecret(object):
   def decrypt(self, file: str) -> str:
     if not os.path.exists(file):
       raise Exception(f'File {file} not found. No such file or directory')
-    decrypted = self.gpg.decrypt_file(file)
+    return self.gpg.decrypt_file(file).data.decode(self.outputEncoding)
 
-    return decrypted.data.decode(self.outputEncoding)
 
   def encrypt(self, message:str, public_key: str, file: str) -> bool:
     encrypted = str(self.gpg.encrypt(message, public_key))

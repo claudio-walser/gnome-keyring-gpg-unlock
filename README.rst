@@ -1,3 +1,11 @@
+Setup
+=====
+gnome-keyring-gpg-unlock setup --public-key <your-gpg-public-key> --secret <path-where-your-encrypted-password-is-stored>
+
+Type in your keyring password when asked. 
+
+
+
 CLI Commands
 ============
 

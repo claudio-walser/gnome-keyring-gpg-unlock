@@ -8,6 +8,7 @@ class Unlock(BaseCommand):
     def run(self, secret: str, public_key: str = ''):
         gpgSecret = GpgSecret()
         keyringPassword = gpgSecret.decrypt(secret)
-
         keyring = Keyring()
         keyring.unlock(keyringPassword)
+
+        del keyringPassword, gpgSecret, keyring # remove instances from memory
