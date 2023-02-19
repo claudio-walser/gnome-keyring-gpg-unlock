@@ -2,6 +2,7 @@ import os
 import gnupg
 
 
+
 class GpgSecret(object):
 
   gpg = gnupg.GPG()
@@ -13,3 +14,13 @@ class GpgSecret(object):
     decrypted = self.gpg.decrypt_file(file)
 
     return decrypted.data.decode(self.outputEncoding)
+
+  def encrypt(self, message:str, public_key: str, file: str) -> bool:
+    encrypted = str(self.gpg.encrypt(message, public_key))
+    del message # remove the password from memory
+
+    with open(file, 'w') as file:  # Use file to refer to the file object
+      file.write(encrypted)
+      file.close()
+
+    return True

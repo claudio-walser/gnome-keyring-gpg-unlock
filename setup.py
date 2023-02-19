@@ -23,7 +23,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'simpcli',
-        'gnupg',
+        'python-gnupg',
         'argparse',
         'argcomplete',
         'typing'

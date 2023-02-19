@@ -3,8 +3,6 @@ import sys
 import simpcli
 from simpcli import CliException
 
-from gitcd.interface.cli.clean import Clean
-
 from gnome_keyring_gpg_unlock.interface.cli.abstract import BaseCommand
 from gnome_keyring_gpg_unlock.interface.cli.setup import Setup
 from gnome_keyring_gpg_unlock.interface.cli.unlock import Unlock
