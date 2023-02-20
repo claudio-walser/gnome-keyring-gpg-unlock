@@ -16,7 +16,7 @@ class GpgSecret(object):
 
   def encrypt(self, message:str, public_key: str, file: str) -> bool:
     encrypted = str(self.gpg.encrypt(message, public_key))
-    del message # remove the password from memory
+    del message # remove message from memory
 
     with open(file, 'w') as file:  # Use file to refer to the file object
       file.write(encrypted)
