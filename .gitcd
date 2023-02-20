@@ -1,4 +1,4 @@
-extraReleaseCommand: null
+extraReleaseCommand: ./publish.sh
 feature: null
 master: main
 preReleaseCommand: null
