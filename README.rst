@@ -34,17 +34,20 @@ Type in your keyring password when asked.
 Check Setup
 ===========
 Check your password
+
 .. code-block:: bash
 
     gpg --quiet --decrypt <path-where-your-encrypted-password-is-stored>
 
 Check the service file
+
 .. code-block:: bash
 
     systemctl --user cat gnome-keyring-gpg-unlock.service
 
 Check unlock
 Lock your default keyring in seahorse.
+
 .. code-block:: bash
 
     gnome-keyring-gpg-unlock unlock --secret <path-where-your-encrypted-password-is-stored>
@@ -56,9 +59,11 @@ Credits
 =======
 
 - Idea
+
 The whole idea of this is not mine. I have seen it first at recolic's repository. Unfortunately i had issues compiling his project. So i deciced to take the (for me) simpler approach and rewrite it as a python package.
 https://github.com/recolic/gnome-keyring-yubikey-unlock
 
 - Unlock the keyring
+
 There is a controversial debate going on about this. Libsecret does not provide an api for unlocking keyrings by password directly. For security reasons, they decided to only unlock via a password dialog under all circumstances. The same goes for the python module keyring. Håvard Moen solved this by interacting with the gnome-keyring control socket directly. You might want to look into his approach using the tpm chip anyway.
 https://codeberg.org/umglurf/gnome-keyring-unlock
