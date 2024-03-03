@@ -36,8 +36,6 @@ class Setup(BaseCommand):
     BindsTo=gnome-session.target
     [Service]
     Type=oneshot
-    ExecStartPre=/bin/sleep 5
-    ExecStartPre=sudo systemctl restart pcscd.service
     ExecStart={EXEC_PATH} unlock --secret {secret}
 
     [Install]
