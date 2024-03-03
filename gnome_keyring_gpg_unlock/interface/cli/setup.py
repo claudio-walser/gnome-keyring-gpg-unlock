@@ -1,4 +1,5 @@
 import os
+import sys
 from gnome_keyring_gpg_unlock.interface.cli.abstract import BaseCommand
 from gnome_keyring_gpg_unlock.GpgSecret import GpgSecret
 import getpass
@@ -26,7 +27,7 @@ class Setup(BaseCommand):
 
   def setupService(self, secret: str) -> bool:
     HOME = os.environ.get('HOME')
-    EXEC_PATH = f'{HOME}/.local/bin/gnome-keyring-gpg-unlock'
+    EXEC_PATH = sys.argv[0]
     SERVICE_PATH = f'{HOME}/.config/systemd/user/gnome-keyring-gpg-unlock.service'
 
     service = f"""
@@ -35,8 +36,6 @@ class Setup(BaseCommand):
     BindsTo=gnome-session.target
     [Service]
     Type=oneshot
-    ExecStartPre=/bin/sleep 5
-    ExecStartPre=sudo systemctl restart pcscd.service
     ExecStart={EXEC_PATH} unlock --secret {secret}
 
     [Install]
